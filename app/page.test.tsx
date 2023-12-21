@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "lib/testing-library-utils";
 import Page from "./page";
 
 test("initial condition", () => {
