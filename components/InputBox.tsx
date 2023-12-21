@@ -13,11 +13,11 @@ type InputBoxProps = {
 
 const InputBoxWrapper = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 8px;
   align-items: center;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
-  height: 70px;
+  height: 80px;
   padding: 10px;
   border: ${({ theme }) => `3px solid ${theme.color.primaryPink}`};
   border-radius: 10px;
@@ -37,8 +37,8 @@ const Input = styled.input`
   padding: 5px;
 
   &::placeholder {
-    font-size: 10px;
-    vertical-align: center;
+    font-size: 12px;
+    vertical-align: middle;
   }
 `;
 

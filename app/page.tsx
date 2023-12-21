@@ -4,6 +4,7 @@ import { useCompletion } from "ai/react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { InputLabel } from "constants/InputLable";
+import Wrapper from "components/Wrapper";
 import InputBox from "components/InputBox";
 import TitleBox from "components/TitleBox";
 import Button from "components/Button";
@@ -38,7 +39,7 @@ export default function Page() {
   };
 
   return (
-    <>
+    <Wrapper>
       <TitleBox />
       {InputLabel.map(({ id, label, placeholder }) => (
         <InputBox
@@ -51,6 +52,6 @@ export default function Page() {
         />
       ))}
       <Button handleClick={handleClick} />
-    </>
+    </Wrapper>
   );
 }

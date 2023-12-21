@@ -4,6 +4,7 @@ import StyledComponentsRegistry from "lib/registry";
 import GlobalStyles from "styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { theme } from "styles/theme";
+import LayoutWrapper from "components/LayoutWrapper";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
             <GlobalStyles />
-            {children}
+            <LayoutWrapper>{children}</LayoutWrapper>
             {/* <ThemePanel /> */}
           </ThemeProvider>
         </StyledComponentsRegistry>
