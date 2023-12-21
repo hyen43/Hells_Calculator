@@ -29,6 +29,16 @@ const GlobalStyles = createGlobalStyle`
     -o-user-drag: none;
     user-drag: none;
     }
+    button {
+    border: none;
+    outline: none;
+    background-color: inherit ;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent; // 뒷 배경을 부모와 같게 맞춰줌
+    }
 `;
 
 export default GlobalStyles;

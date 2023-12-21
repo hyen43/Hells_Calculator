@@ -4,6 +4,15 @@ type ButtonProps = {
   handleClick: () => void;
 };
 
+const ButtonWrapper = styled.button`
+  width: 100%;
+  max-width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: ${({ theme }) => theme.color.deepPink};
+  color: ${({ theme }) => theme.color.white};
+`;
+
 export default function Button({ handleClick }: ButtonProps) {
   return (
     <ButtonWrapper type="button" onClick={handleClick}>
@@ -11,11 +20,3 @@ export default function Button({ handleClick }: ButtonProps) {
     </ButtonWrapper>
   );
 }
-
-const ButtonWrapper = styled.button`
-  width: 100%;
-  max-width: 200px;
-  height: 60px;
-  border-radius: 30px;
-  /* background-color: ; */
-`;
