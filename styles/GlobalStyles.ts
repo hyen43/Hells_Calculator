@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
     -o-user-drag: none;
     user-drag: none;
     }
+
     button {
     border: none;
     outline: none;
@@ -39,9 +40,21 @@ const GlobalStyles = createGlobalStyle`
     appearance: none;
     background-color: transparent; // 뒷 배경을 부모와 같게 맞춰줌
     }
+
     h1,h2,h3,h4,h5,h6 {
         margin: 0;
     }
+
+/* input 기본 스타일 초기화 */
+input, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* IE10 이상에서 input box 에 추가된 지우기 버튼 제거 */
+input::-ms-clear { display: none; }
+
 `;
 
 export default GlobalStyles;

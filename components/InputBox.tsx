@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 type InputBoxProps = {
   id: string; // state 분리 확인용
   label: string;
@@ -9,6 +11,37 @@ type InputBoxProps = {
   ) => void;
 };
 
+const InputBoxWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  border: ${({ theme }) => `3px solid ${theme.color.primaryPink}`};
+  border-radius: 10px;
+  box-shadow: ${({ theme }) => `2px  2px 4px 0px ${theme.color.primaryPink}`};
+`;
+
+const Label = styled.label`
+  font-size: 20px;
+  font-weight: 600;
+`;
+
+const Input = styled.input`
+  flex: 1; // flex 나머지 부분만 차지
+  height: 100%;
+  border-radius: 10px;
+  border: ${({ theme }) => `1px solid ${theme.color.lightGray}`};
+  padding: 5px;
+
+  &::placeholder {
+    font-size: 10px;
+    vertical-align: center;
+  }
+`;
+
 export default function InputBox({
   id,
   label,
@@ -17,17 +50,17 @@ export default function InputBox({
   handleChange,
 }: InputBoxProps) {
   return (
-    <div>
-      <label htmlFor={id}>{label}</label>
-      <input
+    <InputBoxWrapper>
+      <Label htmlFor={id}>{label}</Label>
+      <Input
         type="text"
-        placeholder={placeholder}
+        placeholder={`ex. ${placeholder} (최대 100자)`}
         name={id}
         id={id}
         value={value}
         onChange={(e) => handleChange(id, e)}
         maxLength={100}
       />
-    </div>
+    </InputBoxWrapper>
   );
 }
