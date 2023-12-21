@@ -1,21 +1,21 @@
 "use client";
 
 import { useCompletion } from "ai/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { InputLabel } from "constants/InputLable";
+import InputBox from "components/InputBox";
+import TitleBox from "components/TitleBox";
+import { useStore } from "./store/useStore";
 
 export default function Page() {
-  // const { completion, data, input, handleInputChange, handleSubmit } =
-  //   useCompletion();
-  const [data, setData] = useState<string>();
-  const [data2, setData2] = useState<string>();
+  const { values, setValue } = useStore();
+
   const { complete } = useCompletion({
     api: "/api/completion",
   });
 
   const [result, setResult] = useState("");
-  // const [test2, setTest2] = useState<string>();
-  // const [test4, setTest3] = useState<string>();
 
   const handleSubmit = async () => {
     const result = `${data}, ${data2}`;
@@ -25,23 +25,24 @@ export default function Page() {
     console.log("completion", completion);
   };
 
+  const handleChange = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    const targetValue: string = e.target.value;
+    setValue(id, targetValue);
+  };
+
   return (
-    <div>
-      {/* {data && <div>{JSON.stringify(data, null, 2)}</div>} */}
-      {/* {messages.map((m) => (
-        <div key={m.id}>
-          {m.role}: {m.content}
-        </div>
-      ))} */}
-      {/* {completion} */}
-      {/* {result} */}
-      {/* <form onSubmit={handleSubmit}> */}
-      <input value={data} onChange={(e) => setData(e.target.value)} />
-      <input value={data2} onChange={(e) => setData2(e.target.value)} />
-      {/* </form> */}
-      <button type="button" onClick={handleSubmit}>
-        제출
-      </button>
-    </div>
+    <>
+      <TitleBox />
+      {InputLabel.map(({ id, label, placeholder }) => (
+        <InputBox
+          key={id}
+          id={id}
+          label={label}
+          placeholder={placeholder}
+          value={values[id]}
+          handleChange={handleChange}
+        />
+      ))}
+    </>
   );
 }

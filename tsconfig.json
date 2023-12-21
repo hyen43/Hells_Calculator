@@ -24,6 +24,7 @@
       "lib/*": ["lib/*"],
       "style/*": ["style/*"],
       "components/*": ["components/*"],
+      "constants/*": ["constants/*"],
       "utils/*": ["utils/*"],
       "/": ["app/*"]
     }
