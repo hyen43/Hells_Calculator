@@ -26,6 +26,7 @@ export default function InputBox({
         id={id}
         value={value}
         onChange={(e) => handleChange(id, e)}
+        maxLength={100}
       />
     </div>
   );

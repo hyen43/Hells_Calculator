@@ -19,4 +19,9 @@ test("initial condition", () => {
   expect(titleBox).toHaveLength(2);
 
   // 3. 버튼 테스트
+  const button = screen.getByRole("button", { name: "칼로리 계산하기" });
+
+  expect(button).toBeInTheDocument();
 });
+
+test("버튼을 클릭하면, 결과페이지로 이동하기", () => render(<Page />));

@@ -18,3 +18,11 @@ export const useStore = create((set) => ({
       },
     })),
 }));
+
+export const useResultStore = create((set) => ({
+  result: "",
+  setResult: () =>
+    set((state) => ({
+      result: state,
+    })),
+}));

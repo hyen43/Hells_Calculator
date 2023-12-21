@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { InputLabel } from "constants/InputLable";
 import InputBox from "components/InputBox";
 import TitleBox from "components/TitleBox";
+import Button from "components/Button";
 import { useStore } from "./store/useStore";
 
 export default function Page() {
@@ -17,12 +18,18 @@ export default function Page() {
 
   const [result, setResult] = useState("");
 
-  const handleSubmit = async () => {
-    const result = `${data}, ${data2}`;
+  const handleClick = async () => {
+    console.log("values", values);
 
-    const completion = await complete(result);
+    // 1. values를 가공하는 함수를 돌린다.
+    // 2. 해당 결과를 complete 함수에 넣는다.
+    // 3. 결과가 나오면, store에 저장한다.  (결과가 나오지 않으면 loading 띄어주기)
+    // 4. 페이지를 이동한다.
+    // 5. values를 초기화 한다.
+
+    // const completion = await complete(result);
     // const typos = JSON.parse(completion);
-    console.log("completion", completion);
+    // console.log("completion", completion);
   };
 
   const handleChange = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +50,7 @@ export default function Page() {
           handleChange={handleChange}
         />
       ))}
+      <Button handleClick={handleClick} />
     </>
   );
 }
