@@ -9,9 +9,11 @@ import InputBox from "components/InputBox";
 import TitleBox from "components/TitleBox";
 import Button from "components/Button";
 import { useStore } from "./store/useStore";
+import { useRouter } from "next/router";
 
 export default function Page() {
   const { values, setValue } = useStore();
+  const router = useRouter();
 
   const { complete } = useCompletion({
     api: "/api/completion",
@@ -26,6 +28,7 @@ export default function Page() {
     // 2. 해당 결과를 complete 함수에 넣는다.
     // 3. 결과가 나오면, store에 저장한다.  (결과가 나오지 않으면 loading 띄어주기)
     // 4. 페이지를 이동한다.
+    router.push("/result");
     // 5. values를 초기화 한다.
 
     // const completion = await complete(result);
