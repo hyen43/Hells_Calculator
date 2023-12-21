@@ -13,7 +13,7 @@ const TitleWrapper = styled.div`
 
 export default function TitleBox() {
   const pathname = usePathname();
-  console.log("pathname", pathname);
+  // console.log("pathname", pathname);
   const SUBTITLE =
     pathname === "/"
       ? "오늘 하루 먹은 음식을 작성해주세요!"

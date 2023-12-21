@@ -9,7 +9,7 @@ import InputBox from "components/InputBox";
 import TitleBox from "components/TitleBox";
 import Button from "components/Button";
 import { useStore } from "./store/useStore";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const { values, setValue } = useStore();
