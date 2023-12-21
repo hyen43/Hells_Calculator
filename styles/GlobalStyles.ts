@@ -39,6 +39,9 @@ const GlobalStyles = createGlobalStyle`
     appearance: none;
     background-color: transparent; // 뒷 배경을 부모와 같게 맞춰줌
     }
+    h1,h2,h3,h4,h5,h6 {
+        margin: 0;
+    }
 `;
 
 export default GlobalStyles;

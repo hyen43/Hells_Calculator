@@ -11,6 +11,7 @@ const ButtonWrapper = styled.button`
   border-radius: 30px;
   background-color: ${({ theme }) => theme.color.deepPink};
   color: ${({ theme }) => theme.color.white};
+  font-size: 20px;
 `;
 
 export default function Button({ handleClick }: ButtonProps) {

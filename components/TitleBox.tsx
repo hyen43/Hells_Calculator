@@ -1,6 +1,15 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import styled from "styled-components";
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
 
 export default function TitleBox() {
   const pathname = usePathname();
@@ -11,9 +20,9 @@ export default function TitleBox() {
       : "총 칼로리가 계산되었습니다!";
 
   return (
-    <>
+    <TitleWrapper>
       <h1>🐷귀신이 고칼로리</h1>
       <h3>{SUBTITLE}</h3>
-    </>
+    </TitleWrapper>
   );
 }
