@@ -19,6 +19,7 @@ export default function TitleBox() {
       ? "오늘 하루 먹은 음식을 작성해주세요!"
       : "총 칼로리가 계산되었습니다!";
 
+  // 모바일일 때 Title 크기 수정
   return (
     <TitleWrapper>
       <h1>🐷귀신이 고칼로리</h1>

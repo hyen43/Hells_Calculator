@@ -11,7 +11,8 @@ const WrapperBox = styled.div`
   gap: 20px;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 50%; // 모바일일 때 수정
+  min-height: 80%;
   padding: 40px 20px;
   background-color: ${({ theme }) => theme.color.white};
   border: ${({ theme }) => `2px solid ${theme.color.lightGray}`};
