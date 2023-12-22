@@ -8,25 +8,29 @@ import Wrapper from "components/Wrapper";
 import InputBox from "components/InputBox";
 import TitleBox from "components/TitleBox";
 import Button from "components/Button";
-import { useStore } from "./store/useStore";
 import { useRouter } from "next/navigation";
+import { usePrompt } from "utils/usePrompt";
+import { useStore, useResultStore } from "./store/useStore";
 
 export default function Page() {
   const { values, setValue } = useStore();
+  const { result, setResult } = useResultStore();
   const router = useRouter();
 
   const { complete } = useCompletion({
     api: "/api/completion",
   });
 
-  const [result, setResult] = useState("");
-
-  const handleClick = async () => {
+  const handleClick = () => {
     console.log("values", values);
 
     // 1. values를 가공하는 함수를 돌린다.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    usePrompt();
     // 2. 해당 결과를 complete 함수에 넣는다.
     // 3. 결과가 나오면, store에 저장한다.  (결과가 나오지 않으면 loading 띄어주기)
+    const res = "이 테스트가 들어가나?";
+    setResult(res);
     // 4. 페이지를 이동한다.
     router.push("/result");
     // 5. values를 초기화 한다.

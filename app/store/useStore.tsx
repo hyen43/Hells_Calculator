@@ -17,12 +17,15 @@ export const useStore = create((set) => ({
         [id]: value,
       },
     })),
+  removeAllValues: () =>
+    set({ values: { breakfast: "", lunch: "", dinner: "", snack: "" } }),
 }));
 
 export const useResultStore = create((set) => ({
   result: "",
-  setResult: () =>
+  setResult: (value: string) =>
     set((state) => ({
-      result: state,
+      result: value,
     })),
+  removeAllValues: () => set({ result: "" }),
 }));

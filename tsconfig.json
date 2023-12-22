@@ -26,6 +26,7 @@
       "components/*": ["components/*"],
       "constants/*": ["constants/*"],
       "utils/*": ["utils/*"],
+
       "/": ["app/*"]
     }
   },

@@ -6,6 +6,8 @@ import TitleBox from "components/TitleBox";
 import TextBox from "components/TextBox";
 
 export default function Page() {
+  const { result } = useResultStore();
+  console.log("result", result);
   return (
     <Wrapper>
       <TitleBox />
