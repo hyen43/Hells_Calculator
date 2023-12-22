@@ -1,6 +1,11 @@
 import { fireEvent, render, screen } from "lib/testing-library-utils";
-import mockRouter from "next-router-mock";
+import mockRouter, { useRouter } from "next-router-mock";
 import Page from "./page";
+
+jest.mock("next/navigation", () => ({
+  useRouter,
+  usePathname: jest.fn().mockReturnValue("/"),
+}));
 
 test("initial condition", () => {
   render(<Page />);
@@ -25,11 +30,11 @@ test("initial condition", () => {
   expect(button).toBeInTheDocument();
 });
 
-jest.mock("next/router", () => jest.requireActual("next-router-mock"));
+// jest.mock("next/router", () => jest.requireActual("next-router-mock"));
 
 test("버튼을 클릭하면, 결과페이지로 이동하기", () => {
   render(<Page />);
-  mockRouter.push("/result");
+  // mockRouter.push("/result");
 
   const button = screen.getByRole("button", { name: "칼로리 계산하기" });
 
