@@ -28,7 +28,6 @@ export default function Page() {
       toast.error("내용을 입력해주세요!");
       return;
     }
-
     // 1. values를 가공하는 함수를 돌린다.
     // eslint-disable-next-line react-hooks/rules-of-hooks
 
@@ -38,7 +37,7 @@ export default function Page() {
     // 2. 해당 결과를 complete 함수에 넣는다.
     // const completion = await complete(result);
     // const typos = JSON.parse(completion);
-    // console.log("completion", completion);
+    console.log("completion", completion);
     // 3. 결과가 나오면, store에 저장한다.  (결과가 나오지 않으면 loading 띄어주기)
     const res = "이 테스트가 들어가나?";
     setResult(res);
