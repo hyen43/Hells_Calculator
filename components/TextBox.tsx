@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useResultStore } from "../app/store/useStore";
 
 const TextBoxWrapper = styled.div`
   display: flex;
@@ -18,19 +20,52 @@ const Result = styled.h2`
 
 const Contents = styled.div`
   color: ${({ theme }) => theme.color.gray};
+  max-height: 300px;
+  overflow: scroll;
 `;
 
 export default function TextBox() {
+  const { result } = useResultStore();
+  const [totalResult, setTotalResult] = useState();
+
+  const findResult = () => {
+    result.split("\n").map((line, index) => {
+      if (line.includes("**")) {
+        line.split("**").map((text, index) => {
+          if (index % 2 !== 0) {
+            setTotalResult(text);
+          }
+        });
+      }
+    });
+  };
+  useEffect(() => {
+    if (!result) return;
+    findResult();
+  }, [result]);
+
+  const resultJSX = (
+    <div>
+      {result.split("\n").map((line, index) => {
+        // <p key={index}>{line}</p>
+        if (line.includes("**")) {
+          const boldText = line.split("**").map((text, index) => {
+            if (index % 2 === 0) {
+              return <span key={index}>{text}</span>;
+            }
+            return <strong key={index}>{text}</strong>;
+          });
+          return <p key={index}>{boldText}</p>;
+        }
+        return <p key={index}>{line}</p>;
+      })}
+    </div>
+  );
+
   return (
     <TextBoxWrapper>
-      <Result>총 00 칼로리</Result>
-      <Contents>
-        닭가슴살 칼로리는 00이며 이러하고 저러하다 이러하고 저러하다 이러하고
-        저러하다 이러하고 저러하다 이러하고 저러하다 이러하고 저러하다 이러하고
-        저러하다 이러하고 저러하다 이러하고 저러하다 이러하고 저러하다 이러하고
-        저러하다 이러하고 저러하다 이러하고 저러하다 이러하고 저러하다 이러하고
-        저러하다 이러하고 저러하다
-      </Contents>
+      {totalResult && <Result> 총 {totalResult} 칼로리</Result>}
+      <Contents>{result && resultJSX}</Contents>
     </TextBoxWrapper>
   );
 }

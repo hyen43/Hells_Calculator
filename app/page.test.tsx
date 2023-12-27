@@ -100,19 +100,16 @@ describe("버튼 클릭 함수 테스트", () => {
     function logAIComplete() {
       console.log("completion", result);
     }
-    // logAIComplete();
+    logAIComplete();
     expect(console.log).toHaveBeenCalledWith("completion", result);
   });
+  it("4.버튼을 클릭하면, 결과페이지로 이동하기", () => {
+    // 클릭을 누른다.
+    user.click(button);
+    mockRouter.push("/result");
+
+    expect(mockRouter).toMatchObject({
+      pathname: "/result",
+    });
+  });
 });
-
-// test("버튼을 클릭하면, 결과페이지로 이동하기", () => {
-//   render(<Page />);
-//   // mockRouter.push("/result");
-
-//   // 클릭을 누른다.
-//   fireEvent.click(button);
-
-//   expect(mockRouter).toMatchObject({
-//     pathname: "/result",
-//   });
-// });

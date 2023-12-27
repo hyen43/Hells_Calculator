@@ -24,7 +24,7 @@ export const useStore = create((set) => ({
 export const useResultStore = create((set) => ({
   result: "",
   setResult: (value: string) =>
-    set((state) => ({
+    set(() => ({
       result: value,
     })),
   removeAllValues: () => set({ result: "" }),

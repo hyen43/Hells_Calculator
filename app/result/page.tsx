@@ -1,13 +1,12 @@
 "use client";
 
-import { useResultStore } from "../store/useStore";
 import Wrapper from "components/Wrapper";
 import TitleBox from "components/TitleBox";
 import TextBox from "components/TextBox";
+import { useResultStore } from "../store/useStore";
 
 export default function Page() {
   const { result } = useResultStore();
-  console.log("result", result);
   return (
     <Wrapper>
       <TitleBox />
