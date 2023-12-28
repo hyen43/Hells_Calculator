@@ -27,5 +27,5 @@ export const useResultStore = create((set) => ({
     set(() => ({
       result: value,
     })),
-  removeAllValues: () => set({ result: "" }),
+  removeResultValue: () => set({ result: "" }),
 }));

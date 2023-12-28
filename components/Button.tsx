@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type ButtonProps = {
   handleClick: () => void;
+  title: string;
 };
 
 const ButtonWrapper = styled.button`
@@ -14,10 +15,10 @@ const ButtonWrapper = styled.button`
   font-size: 20px;
 `;
 
-export default function Button({ handleClick }: ButtonProps) {
+export default function Button({ handleClick, title }: ButtonProps) {
   return (
     <ButtonWrapper type="button" onClick={handleClick}>
-      칼로리 계산하기
+      {title}
     </ButtonWrapper>
   );
 }

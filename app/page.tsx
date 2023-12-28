@@ -15,8 +15,12 @@ import { useStore, useResultStore } from "./store/useStore";
 
 export default function Page() {
   const { values, setValue, removeAllValues } = useStore();
-  const { result, setResult } = useResultStore();
+  const { result, setResult, removeResultValue } = useResultStore();
   const router = useRouter();
+
+  useEffect(() => {
+    removeResultValue();
+  }, []);
 
   const { complete } = useCompletion({
     api: "/api/completion",
@@ -62,7 +66,7 @@ export default function Page() {
           handleChange={handleChange}
         />
       ))}
-      <Button handleClick={handleClick} />
+      <Button handleClick={handleClick} title="칼로리 계산하기" />
     </Wrapper>
   );
 }

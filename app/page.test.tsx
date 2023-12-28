@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from "lib/testing-library-utils";
+import { render, screen, waitFor } from "lib/testing-library-utils";
 import mockRouter, { useRouter } from "next-router-mock";
-import { useStore, useResultStore } from "./store/useStore";
 import userEvent from "@testing-library/user-event";
+import { useStore, useResultStore } from "./store/useStore";
 
 import Page from "./page";
 
@@ -103,13 +103,15 @@ describe("버튼 클릭 함수 테스트", () => {
     logAIComplete();
     expect(console.log).toHaveBeenCalledWith("completion", result);
   });
-  it("4.버튼을 클릭하면, 결과페이지로 이동하기", () => {
+  it("4.버튼을 클릭하면, 결과페이지로 이동하기", async () => {
     // 클릭을 누른다.
+    mockRouter.push = jest.fn();
     user.click(button);
-    mockRouter.push("/result");
+    // mockRouter.push("/result");
 
-    expect(mockRouter).toMatchObject({
-      pathname: "/result",
+    await waitFor(() => {
+      // 결과페이지가 나옴
+      expect(mockRouter.push).toHaveBeenCalledWith("/result");
     });
   });
 });
