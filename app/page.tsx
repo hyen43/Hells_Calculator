@@ -79,6 +79,7 @@ export default function Page() {
         ))}
         <Button handleClick={handleClick} title="칼로리 계산하기" />
       </Wrapper>
+      <Spinner />
       {loading && <Spinner />}
     </>
   );

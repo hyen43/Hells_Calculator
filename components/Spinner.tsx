@@ -17,7 +17,7 @@ const SpinnerWrapper = styled.div`
 export default function Spinner() {
   return (
     <SpinnerWrapper>
-      <RingLoader color="#FF9E9E" />
+      <RingLoader color="#ffffff" size={80} />
     </SpinnerWrapper>
   );
 }
