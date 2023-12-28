@@ -17,6 +17,10 @@ const WrapperBox = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   border: ${({ theme }) => `2px solid ${theme.color.lightGray}`};
   border-radius: 10px;
+
+  ${({ theme }) => theme.media.mobile`
+    
+  `}
 `;
 
 // 스타일링을 위한 컴포넌트

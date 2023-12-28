@@ -1,8 +1,9 @@
 import "styled-components";
-import { ColorsTypes } from "styles/theme";
+import { ColorsTypes, MediaTypes } from "styles/theme";
 
 declare module "styled-components" {
   export interface DefaultTheme {
     color: ColorsTypes;
+    media: MediaTypes;
   }
 }

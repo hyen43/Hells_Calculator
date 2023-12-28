@@ -1,6 +1,7 @@
 "use client";
 
 import { DefaultTheme } from "styled-components";
+import media from "./media";
 
 const color = {
   white: "#ffffff",
@@ -14,7 +15,9 @@ const color = {
 };
 
 export type ColorsTypes = typeof color;
+export type MediaTypes = typeof media;
 
 export const theme: DefaultTheme = {
   color,
+  media,
 } as const;
