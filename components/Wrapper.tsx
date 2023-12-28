@@ -12,13 +12,16 @@ const WrapperBox = styled.div`
   align-items: center;
   justify-content: center;
   width: 80%;
-  min-height: 80%;
+  /* min-height: 80%; */
   padding: 40px 20px;
-  background-color: ${({ theme }) => theme.color.white};
-  border: ${({ theme }) => `2px solid ${theme.color.lightGray}`};
+  background-color: ${({ theme }) => theme.color?.white || "white"};
+  border: ${({ theme }) => `2px solid ${theme.color?.lightGray ?? "#E9E9E9"}`};
   border-radius: 10px;
 
-  ${({ theme }) => theme.media.tablet`
+  ${({ theme }) =>
+    theme &&
+    theme.media &&
+    theme.media.tablet`
     width: 100%;
   `}
 `;

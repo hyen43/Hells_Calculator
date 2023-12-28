@@ -10,8 +10,8 @@ const ButtonWrapper = styled.button`
   max-width: 200px;
   height: 60px;
   border-radius: 30px;
-  background-color: ${({ theme }) => theme.color.deepPink};
-  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color?.deepPink || "#FFCACA"};
+  color: ${({ theme }) => theme.color?.white || "#ffffff"};
   font-size: 20px;
 `;
 

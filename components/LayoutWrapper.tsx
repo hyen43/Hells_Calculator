@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styled from "styled-components";
 
@@ -13,7 +15,7 @@ const Layout = styled.main`
   height: 100vh;
   margin: 0 auto;
   padding: 0 20px;
-  background-color: ${({ theme }) => theme.color.primaryPink};
+  background-color: ${({ theme }) => theme.color?.primaryPink || "#FFE0E0"};
 `;
 
 export default function LayoutWapper({ children }: LayoutProps) {

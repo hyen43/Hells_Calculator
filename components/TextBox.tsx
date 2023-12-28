@@ -10,20 +10,24 @@ const TextBoxWrapper = styled.div`
   gap: 30px;
   padding: 20px 30px; // 모바일일 때 수정
   width: 80%; // 모바일일 때 수정
-  border: ${({ theme }) => `1px solid ${theme.color.primaryPink}`};
+  border: ${({ theme }) =>
+    `1px solid ${theme.color?.primaryPink ?? "#FFE0E0"}`};
   border-radius: 10px;
-  ${({ theme }) => theme.media.tablet`
+  ${({ theme }) =>
+    theme &&
+    theme.media &&
+    theme.media.tablet`
     width: 100%;
     padding: 20px 20px;
   `}
 `;
 
 const Result = styled.h2`
-  color: ${({ theme }) => theme.color.pointPink};
+  color: ${({ theme }) => theme.color?.pointPink || "#FF9E9E"};
 `;
 
 const Contents = styled.div`
-  color: ${({ theme }) => theme.color.gray};
+  color: ${({ theme }) => theme.color?.gray || "#8F8F8F"};
   max-height: 300px;
   overflow-y: auto;
 `;

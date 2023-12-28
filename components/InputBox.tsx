@@ -19,9 +19,11 @@ const InputBoxWrapper = styled.div`
   width: 100%;
   height: 80px;
   padding: 10px;
-  border: ${({ theme }) => `3px solid ${theme.color.primaryPink}`};
+  border: ${({ theme }) =>
+    `3px solid ${theme.color?.primaryPink ?? "#FFE0E0"}`};
   border-radius: 10px;
-  box-shadow: ${({ theme }) => `2px  2px 4px 0px ${theme.color.primaryPink}`};
+  box-shadow: ${({ theme }) =>
+    `2px  2px 4px 0px ${theme.color?.primaryPink ?? "#FFE0E0"}`};
 `;
 
 const Label = styled.label`
@@ -33,7 +35,7 @@ const Input = styled.input`
   flex: 1; // flex 나머지 부분만 차지
   height: 100%;
   border-radius: 10px;
-  border: ${({ theme }) => `1px solid ${theme.color.lightGray}`};
+  border: ${({ theme }) => `1px solid ${theme.color?.lightGray ?? "#E9E9E9"}`};
   padding: 5px;
 
   &::placeholder {
