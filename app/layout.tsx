@@ -16,7 +16,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <GlobalStyles />
             <Toaster />
             <LayoutWrapper>{children}</LayoutWrapper>
-            {/* <ThemePanel /> */}
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
