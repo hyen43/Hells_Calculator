@@ -18,8 +18,8 @@ const WrapperBox = styled.div`
   border: ${({ theme }) => `2px solid ${theme.color.lightGray}`};
   border-radius: 10px;
 
-  ${({ theme }) => theme.media.mobile`
-    
+  ${({ theme }) => theme.media.tablet`
+    width: fit-content;
   `}
 `;
 

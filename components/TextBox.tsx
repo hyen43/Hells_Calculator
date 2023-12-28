@@ -12,6 +12,10 @@ const TextBoxWrapper = styled.div`
   width: 80%; // 모바일일 때 수정
   border: ${({ theme }) => `1px solid ${theme.color.primaryPink}`};
   border-radius: 10px;
+  ${({ theme }) => theme.media.tablet`
+    width: 100%;
+    padding: 20px 20px;
+  `}
 `;
 
 const Result = styled.h2`
@@ -46,10 +50,10 @@ export default function TextBox() {
 
   const resultJSX = (
     <div>
-      {result.split("\n").map((line, index) => {
+      {result?.split("\n").map((line, index) => {
         // <p key={index}>{line}</p>
         if (line.includes("**")) {
-          const boldText = line.split("**").map((text, index) => {
+          const boldText = line?.split("**").map((text, index) => {
             if (index % 2 === 0) {
               return <span key={index}>{text}</span>;
             }

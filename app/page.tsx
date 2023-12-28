@@ -35,17 +35,23 @@ export default function Page() {
     // 1. values를 가공하는 함수를 돌린다.
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const prompt = usePrompt(values);
-    console.log("prompt", prompt);
-    // 2. 해당 결과를 complete 함수에 넣는다.
-    const completion = await complete(prompt);
-    // const typos = JSON.parse(completion);
-    console.log("completion", typeof completion);
-    // 3. 결과가 나오면, store에 저장한다.  (결과가 나오지 않으면 loading 띄어주기)
-    setResult(completion);
-    // 4. 페이지를 이동한다.
-    router.push("/result");
-    // 5. values를 초기화 한다.
-    removeAllValues();
+    try {
+      // spinner를 넣는다.
+      // 2. 해당 결과를 complete 함수에 넣는다.
+      const completion = await complete(prompt);
+      // const typos = JSON.parse(completion);
+      // 3. 결과가 나오면, store에 저장한다.  (결과가 나오지 않으면 loading 띄어주기)
+      setResult(completion);
+      // 4. 페이지를 이동한다.
+      router.push("/result");
+      // 5. values를 초기화 한다.
+
+      removeAllValues();
+    } catch (error) {
+      toast.error("AI 생성에 오류가 생겼습니다. 잠시 후에 다시 시작해주세요.");
+    } finally {
+      // 스피너를 종료한다.
+    }
   };
 
   const handleChange = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
