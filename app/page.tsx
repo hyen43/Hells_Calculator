@@ -8,6 +8,7 @@ import Wrapper from "components/Wrapper";
 import InputBox from "components/InputBox";
 import TitleBox from "components/TitleBox";
 import Button from "components/Button";
+import Spinner from "components/Spinner";
 import { useRouter } from "next/navigation";
 import { usePrompt } from "utils/usePrompt";
 import { toast } from "react-hot-toast";
@@ -17,6 +18,7 @@ export default function Page() {
   const { values, setValue, removeAllValues } = useStore();
   const { result, setResult, removeResultValue } = useResultStore();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     removeResultValue();
@@ -37,6 +39,7 @@ export default function Page() {
     const prompt = usePrompt(values);
     try {
       // spinner를 넣는다.
+      setLoading(true);
       // 2. 해당 결과를 complete 함수에 넣는다.
       const completion = await complete(prompt);
       // const typos = JSON.parse(completion);
@@ -51,6 +54,7 @@ export default function Page() {
       toast.error("AI 생성에 오류가 생겼습니다. 잠시 후에 다시 시작해주세요.");
     } finally {
       // 스피너를 종료한다.
+      setLoading(false);
     }
   };
 
@@ -60,19 +64,22 @@ export default function Page() {
   };
 
   return (
-    <Wrapper>
-      <TitleBox />
-      {InputLabel.map(({ id, label, placeholder }) => (
-        <InputBox
-          key={id}
-          id={id}
-          label={label}
-          placeholder={placeholder}
-          value={values[id]}
-          handleChange={handleChange}
-        />
-      ))}
-      <Button handleClick={handleClick} title="칼로리 계산하기" />
-    </Wrapper>
+    <>
+      <Wrapper>
+        <TitleBox />
+        {InputLabel.map(({ id, label, placeholder }) => (
+          <InputBox
+            key={id}
+            id={id}
+            label={label}
+            placeholder={placeholder}
+            value={values[id]}
+            handleChange={handleChange}
+          />
+        ))}
+        <Button handleClick={handleClick} title="칼로리 계산하기" />
+      </Wrapper>
+      {loading && <Spinner />}
+    </>
   );
 }

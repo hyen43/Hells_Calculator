@@ -25,7 +25,7 @@ const Result = styled.h2`
 const Contents = styled.div`
   color: ${({ theme }) => theme.color.gray};
   max-height: 300px;
-  overflow: scroll;
+  overflow-y: auto;
 `;
 
 export default function TextBox() {

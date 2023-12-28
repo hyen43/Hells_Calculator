@@ -12,6 +12,7 @@ const Layout = styled.main`
   width: 100%;
   height: 100vh;
   margin: 0 auto;
+  padding: 0 20px;
   background-color: ${({ theme }) => theme.color.primaryPink};
 `;
 
