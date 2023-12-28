@@ -2,7 +2,6 @@
 
 import { useCompletion } from "ai/react";
 import { useState, useEffect } from "react";
-import styled from "styled-components";
 import { InputLabel } from "constants/InputLable";
 import Wrapper from "components/Wrapper";
 import InputBox from "components/InputBox";
@@ -16,12 +15,13 @@ import { useStore, useResultStore } from "./store/useStore";
 
 export default function Page() {
   const { values, setValue, removeAllValues } = useStore();
-  const { result, setResult, removeResultValue } = useResultStore();
+  const { setResult, removeResultValue } = useResultStore();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     removeResultValue();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { complete } = useCompletion({

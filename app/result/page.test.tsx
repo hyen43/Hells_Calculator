@@ -1,7 +1,7 @@
 import { render, screen, act, waitFor } from "lib/testing-library-utils";
 import mockRouter, { useRouter } from "next-router-mock";
-import Page from "./page";
 import userEvent from "@testing-library/user-event";
+import Page from "./page";
 import { useResultStore } from "../store/useStore";
 
 jest.mock("next/navigation", () => ({

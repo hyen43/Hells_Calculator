@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Wrapper from "components/Wrapper";
 import TitleBox from "components/TitleBox";
 import TextBox from "components/TextBox";
@@ -22,11 +22,13 @@ export default function Page() {
   };
 
   // 결과가 없으면 메인으로 보내기 (진입불가 예외처리);
-  if (!result) {
-    router.push("/");
-    return;
-  }
+  useEffect(() => {
+    if (!result) {
+      router.push("/");
+    }
+  }, [router, result]);
 
+  // eslint-disable-next-line consistent-return
   return (
     <>
       <Wrapper>

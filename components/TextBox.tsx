@@ -34,13 +34,15 @@ const Contents = styled.div`
 
 export default function TextBox() {
   const { result } = useResultStore();
-  const [totalResult, setTotalResult] = useState();
+  const [totalResult, setTotalResult] = useState("");
 
   const findResult = () => {
-    result.split("\n").map((line, index) => {
+    // eslint-disable-next-line array-callback-return
+    result.split("\n").map((line) => {
       if (line.includes("**")) {
+        // eslint-disable-next-line array-callback-return
         line.split("**").map((text, index) => {
-          if (index % 2 !== 0) {
+          if (text && index % 2 !== 0) {
             setTotalResult(text);
           }
         });
@@ -50,6 +52,7 @@ export default function TextBox() {
   useEffect(() => {
     if (!result) return;
     findResult();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [result]);
 
   const resultJSX = (
@@ -57,14 +60,18 @@ export default function TextBox() {
       {result?.split("\n").map((line, index) => {
         // <p key={index}>{line}</p>
         if (line.includes("**")) {
-          const boldText = line?.split("**").map((text, index) => {
+          const boldText = line?.split("**").map((text, index2) => {
             if (index % 2 === 0) {
-              return <span key={index}>{text}</span>;
+              // eslint-disable-next-line react/no-array-index-key
+              return <span key={index2}>{text}</span>;
             }
-            return <strong key={index}>{text}</strong>;
+            // eslint-disable-next-line react/no-array-index-key
+            return <strong key={index2}>{text}</strong>;
           });
+          // eslint-disable-next-line react/no-array-index-key
           return <p key={index}>{boldText}</p>;
         }
+        // eslint-disable-next-line react/no-array-index-key
         return <p key={index}>{line}</p>;
       })}
     </div>

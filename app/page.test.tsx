@@ -58,6 +58,7 @@ describe("버튼 클릭 함수 테스트", () => {
     screen.findByRole("alert", { name: "내용을 입력해주세요!" });
   });
   it("2.버튼을 클릭했는데, 프롬프트 내에 값이 있으면 콘솔에 값이 있기", () => {
+    // eslint-disable-next-line no-console
     console.log = jest.fn(); // console.log를 mock 합니다.
     useStore.setState({
       values: {
@@ -70,15 +71,18 @@ describe("버튼 클릭 함수 테스트", () => {
     user.click(button);
     // console.log를 호출하는 함수, 예를 들어:
     function logPrompt() {
+      // eslint-disable-next-line no-console
       console.log("prompt", "아침: 시리얼 1인분");
     }
     logPrompt();
-
+    // eslint-disable-next-line no-console
     expect(console.log).toHaveBeenCalled();
+    // eslint-disable-next-line no-console
     expect(console.log).toHaveBeenCalledWith("prompt", "아침: 시리얼 1인분");
   });
 
   it("3. 프롬프트 값이 있을 때, ai 결과가 콘솔 값에 있다", () => {
+    // eslint-disable-next-line no-console
     console.log = jest.fn(); // console.log를 mock 합니다.
     useStore.setState({
       values: {
@@ -98,9 +102,11 @@ describe("버튼 클릭 함수 테스트", () => {
     user.click(button);
 
     function logAIComplete() {
+      // eslint-disable-next-line no-console
       console.log("completion", result);
     }
     logAIComplete();
+    // eslint-disable-next-line no-console
     expect(console.log).toHaveBeenCalledWith("completion", result);
   });
   it("4.버튼을 클릭하면, 결과페이지로 이동하기", async () => {
