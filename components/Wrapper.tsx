@@ -18,12 +18,9 @@ const WrapperBox = styled.div`
   border: ${({ theme }) => `2px solid ${theme.color?.lightGray ?? "#E9E9E9"}`};
   border-radius: 10px;
 
-  ${({ theme }) =>
-    theme &&
-    theme.media &&
-    theme.media.tablet`
+  @media only screen and (max-width: 768px) {
     width: 100%;
-  `}
+  }
 `;
 
 // 스타일링을 위한 컴포넌트

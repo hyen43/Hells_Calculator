@@ -8,18 +8,13 @@ const TextBoxWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
-  padding: 20px 30px; // 모바일일 때 수정
-  width: 80%; // 모바일일 때 수정
+  width: 60%;
   border: ${({ theme }) =>
     `1px solid ${theme.color?.primaryPink ?? "#FFE0E0"}`};
   border-radius: 10px;
-  ${({ theme }) =>
-    theme &&
-    theme.media &&
-    theme.media.tablet`
+  @media only screen and (max-width: 768px) {
     width: 100%;
-    padding: 20px 20px;
-  `}
+  }
 `;
 
 const Result = styled.h2`
@@ -27,9 +22,14 @@ const Result = styled.h2`
 `;
 
 const Contents = styled.div`
+  width: 100%;
+  padding: 20px 30px;
   color: ${({ theme }) => theme.color?.gray || "#8F8F8F"};
   max-height: 300px;
   overflow-y: auto;
+  @media only screen and (max-width: 768px) {
+    padding: 0 10px;
+  }
 `;
 
 export default function TextBox() {
