@@ -21,7 +21,7 @@ export async function POST(req: Request) {
         },
         {
           role: "user",
-          content: `${prompt}을 먹었어. 먹은 음식의 총 칼로리를 대략적으로라도 무조건 계산해줘.`,
+          content: `${prompt}을 먹었어. 먹은 음식의 총 칼로리를 대략적으로라도 무조건 계산해줘. 계산한 총 칼로리를 먼저 말해주고 그 뒤에 세부내용을 말해줘.`,
         },
       ],
       max_tokens: 500, // 채팅 완료 시, 생성할 수 있는 최대 토큰 수
