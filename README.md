@@ -1,7 +1,7 @@
 # 🐷 귀신이 고칼로리
 ## 하루 섭취 음식의 총 칼로리 계산 사이트
 
-![귀신이고칼로리](https://github.com/hyen43/Hells_Calculator/assets/60104321/32e5cc82-b372-4257-aa8b-32bd1d9e8a3b)
+![귀신이고칼로리_git](https://github.com/hyen43/Hells_Calculator/assets/60104321/dace31f9-18c1-4fe9-990e-ec807938fdc5)
 
 
 * 웹사이트: https://hells-calculator.com/
