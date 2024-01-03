@@ -1,27 +1,47 @@
-# Radix UI Example
+# 🐷 귀신이 고칼로리
+## 하루 섭취 음식의 총 칼로리 계산 사이트
 
-This example showcases a few basic Radix UI components
+* 웹사이트: https://hells-calculator.com/
 
-## Deploy your own
+### 설명
+현재 운동하고 있는 크로스핏 박스에서 다이어트 챌린지를 하고 있습니다. 저녁 운동 전에 하루 총 칼로리를 알고, 얼마나 운동을 해야 살이 빠질지 알고 싶어서 fatsecret이라는 사이트를 이용해 칼로리를 계산하고 있었습니다. 해당 사이트에서는 일일이 상품 칼로리를 찾아보고 입력해야했습니다. 일일이 검색하고 해당 칼로리를 입력하는 과정이 귀찮아서 AI의 도움이 있으면 편안하겠다고 생각해서 만들었습니다. 
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+기술적으로는 openAI를 사용해서 간단한 프로젝트를 만들고 싶었습니다. 최근에 제대로 공부하기 시작한 unit test도 프로젝트에 적용해보며 익숙해지는 시간을 가지고 싶었습니다. 해당 프로젝트에서는 openAI와 Jest를 사용한 Unit test가 적용되어있습니다.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/radix-ui&project-name=radix-ui&repository-name=radix-ui)
+[주요 기능]
+* 하루 섭취 음식 입력
+* 총 칼로리 AI 계산
 
-## How to use
+### 역할
+* 1인 개발: 기획, 디자인, 개발, 배포
+* 디자인 url: https://www.figma.com/file/uDHYHSpr470kOcMBxaJru1/Untitled?type=design&node-id=0-1&mode=design
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### 구현 기능
+- 메인페이지, 결과 페이지
+- `OpenAI API`를 활용하여 칼로리 계산 결과 제공
+- `Jest`를 활용해 `Unit test` 진행
+- `Zustand` 를 이용해 섭취 음식 상태 관리
 
-```bash
-npx create-next-app --example radix-ui radix-ui-app
-```
+### 기술 스택
+**Frontend**
+* Next.js
+* React
+* styled-component
+* Jest
+* Zustand
 
-```bash
-yarn create next-app --example radix-ui radix-ui-app
-```
+**Deployment**
+* Vercel
 
-```bash
-pnpm create next-app --example radix-ui radix-ui-app
-```
+**그 외** 
+* OpenAI
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### 느낀점
+기획부터 디자인, 개발 및 배포까지 한 프로세스를 혼자 다 해 본 프로젝트는 처음입니다. 개발자를 해야겠다고 마음 먹은 것도 내가 상상한 서비스를 구현하고 싶다는 마음 때문이었는데, 구현까지 해보니 우선 너무 뿌듯합니다. (자녀는 없지만) 오라운드(직전 회사 담당 서비스) 말고 자식이 한 명 더 생긴 느낌이랄까요? 서비스라고 하기에는 매우 작지만 이 안에 하고 싶은걸 다 해봐서 기쁩니다. 
+
+Open AI를 사용해보고싶은 마음이 계속 있었는데, 이 참에 만들어보았습니다. next js에는 많은 예제코드가 있어서 금방 따라해볼 수 있었습니다. 다음에는 파이썬으로 만들어보고 싶다는 생각을 했습니다. 그리고 저에게 애증의 TDD. 회사에서는 TDD를 도입해보고 싶은데 시간이 없었습니다. 그래서 따로 공부해서 적용해보고 있었는데 회사 코드가 복잡하다보니 잘 적용하지 못했습니다. 이런 아쉬움 때문에 퇴사하고 제일 처음 공부한게 TDD였습니다. TDD를 공부하면서 다음 프로젝트에는 달아야지 했는데 이번에 TDD를 적용해보았습니다. 아주 작은 단위지만 provider도 만들고 mockRouter나 jest.fn 등을 사용해보며 TDD에 흥미를 붙이게 되었습니다. 처음부터 테스트 케이스를 설계하며 코드를 짜다보니, 예외가 생기는 경우가 확 줄어들어 신기했습니다. 이래서 TDD 하는군싶었습니다. 
+
+그 외로 AWS EC2로 배포를 실행했으나, deploy linting 에서 계속 멈춰있어서 로컬에서 build 테스트도 해보고 두 번 이상의 EC2 설정과 빌드도 해봤고, 검색도 많이 해보았지만 마땅한 해결책이 없어 build 테스트 삼아 우선 Vercel로 배포를 했습니다.
+
+돈이 들었지만 Route53으로 도메인도 만들어서 연결해보았습니다. 회사 다닐 때 배포관련해서 이런 저런 에러를 마주해서 배포에 대해 공부해봐야겠다는 생각을 했습니다. 작은 프로젝트라도 배포 공부를 계속 해볼 예정입니다.
+  
